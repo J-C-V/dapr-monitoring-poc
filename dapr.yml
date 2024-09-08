@@ -1,0 +1,24 @@
+version: 1
+common:
+  configFilePath: components/config.yml
+  resourcesPath: components/resources/
+apps:
+  - appID: production
+    appDirPath: ./services/production/
+    appLogDestination: console
+    daprdLogDestination: console
+    command: ["go", "run", "."]
+  - appID: data
+    appDirPath: ./services/data/
+    appPort: 1324
+    daprHTTPPort: 4000
+    appLogDestination: console
+    daprdLogDestination: console
+    command: ["go", "run", "."]
+  - appID: monitoring
+    appDirPath: ./services/monitoring/
+    appPort: 1325
+    daprHTTPPort: 4001
+    appLogDestination: console
+    daprdLogDestination: console
+    command: ["go", "run", "."]
